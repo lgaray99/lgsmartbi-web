@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640" role="img" aria-labelledby="title desc">
+  <title id="title">Data Warehouse placeholder</title>
+  <desc id="desc">Placeholder de arquitectura de almacén de datos con fuentes, ETL y consumo analítico.</desc>
+  <rect width="960" height="640" fill="#0D1B2A"/>
+  <rect x="70" y="88" width="210" height="100" rx="14" fill="#132238" stroke="#39A9DB" stroke-width="4"/>
+  <rect x="70" y="270" width="210" height="100" rx="14" fill="#132238" stroke="#39A9DB" stroke-width="4"/>
+  <rect x="70" y="452" width="210" height="100" rx="14" fill="#132238" stroke="#39A9DB" stroke-width="4"/>
+  <rect x="380" y="250" width="200" height="140" rx="18" fill="#08111F" stroke="#28C76F" stroke-width="5"/>
+  <rect x="690" y="152" width="200" height="110" rx="14" fill="#132238" stroke="#1976D2" stroke-width="4"/>
+  <rect x="690" y="378" width="200" height="110" rx="14" fill="#132238" stroke="#1976D2" stroke-width="4"/>
+  <path d="M280 138h66c42 0 42 182 34 182h-58" fill="none" stroke="#A9B6C4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M280 320h86" fill="none" stroke="#A9B6C4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M280 502h66c42 0 42-182 34-182h-58" fill="none" stroke="#A9B6C4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M580 320h72c34 0 34-113 38-113" fill="none" stroke="#A9B6C4" stroke-width="6" stroke-linecap="round"/>
+  <path d="M580 320h72c34 0 34 113 38 113" fill="none" stroke="#A9B6C4" stroke-width="6" stroke-linecap="round"/>
+  <text x="122" y="148" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Ventas</text>
+  <text x="119" y="330" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Costos</text>
+  <text x="108" y="512" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Clientes</text>
+  <text x="430" y="310" fill="#28C76F" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">ETL</text>
+  <text x="416" y="348" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Data DW</text>
+  <text x="738" y="216" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Power BI</text>
+  <text x="744" y="442" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700">Superset</text>
+</svg>

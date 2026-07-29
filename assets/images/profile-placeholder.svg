@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="720" viewBox="0 0 720 720" role="img" aria-labelledby="title desc">
+  <title id="title">Perfil profesional placeholder</title>
+  <desc id="desc">Placeholder para imagen profesional de Luis Garay.</desc>
+  <rect width="720" height="720" fill="#0D1B2A"/>
+  <circle cx="360" cy="262" r="112" fill="#132238" stroke="#39A9DB" stroke-width="8"/>
+  <path d="M154 622c28-128 104-196 206-196s178 68 206 196" fill="#132238" stroke="#39A9DB" stroke-width="8"/>
+  <circle cx="360" cy="262" r="72" fill="#1976D2"/>
+  <path d="M228 584c32-72 78-108 132-108s100 36 132 108" fill="#28C76F" opacity="0.88"/>
+  <text x="360" y="664" text-anchor="middle" fill="#F5F7FA" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="700">Luis Garay</text>
+</svg>

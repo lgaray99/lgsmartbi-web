@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">LG Smart BI logo placeholder</title>
+  <desc id="desc">Placeholder geométrico para el logotipo de LG Smart BI.</desc>
+  <rect width="512" height="512" rx="64" fill="#08111F"/>
+  <rect x="46" y="46" width="420" height="420" rx="42" fill="#132238" stroke="#39A9DB" stroke-width="10"/>
+  <path d="M132 332V156h42v136h82v40H132Z" fill="#F5F7FA"/>
+  <path d="M292 336c-54 0-91-37-91-90 0-54 39-92 94-92 34 0 60 13 77 36l-31 26c-11-14-25-21-44-21-31 0-53 21-53 51 0 31 21 52 55 52 12 0 24-2 35-9v-30h-45v-36h84v88c-20 16-49 25-81 25Z" fill="#39A9DB"/>
+  <circle cx="385" cy="128" r="26" fill="#28C76F"/>
+</svg>
