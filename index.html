@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/portfolio.css">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="LG Smart BI | Business Intelligence, Power BI y Automatización">
@@ -110,11 +111,11 @@
                         </div>
                         <div class="metric-row">
                             <div class="metric-card">
-                                <span>Ventas</span>
+                                <span>Ventas · ejemplo ficticio</span>
                                 <strong>+28%</strong>
                             </div>
                             <div class="metric-card">
-                                <span>Margen</span>
+                                <span>Margen · ejemplo ficticio</span>
                                 <strong>14.6%</strong>
                             </div>
                         </div>
@@ -184,51 +185,151 @@
 
         <section class="section" id="proyectos">
             <div class="container">
-                <div class="section-heading reveal">
-                    <p class="eyebrow">Proyectos destacados</p>
-                    <h2>Casos representativos para transformar datos en decisiones</h2>
-                    <p>Proyectos base que muestran cómo LG Smart BI puede conectar sistemas, ordenar información y publicar indicadores útiles para cada área.</p>
+                <div class="section-heading">
+                    <p class="eyebrow">Portafolio técnico y comercial</p>
+                    <h2>Soluciones que podés explorar</h2>
+                    <p>Doce casos de finanzas, datos y automatización. Probá los motores locales y explorá las arquitecturas, con alcances y límites visibles en cada proyecto.</p>
                 </div>
-
+                <div class="portfolio-legend"><span class="status-tag functional">Demostración funcional</span> Procesa datos en el navegador. <span class="status-tag simulation">Simulación interactiva</span> Ilustra sistemas externos.</div>
+                <div class="project-filterbar" data-project-filters role="group" aria-label="Filtrar proyectos">
+<button type="button" data-filter="Todos" aria-pressed="true">Todos</button><button type="button" data-filter="Finanzas" aria-pressed="false">Finanzas</button><button type="button" data-filter="Data Engineering" aria-pressed="false">Data Engineering</button><button type="button" data-filter="Automatización" aria-pressed="false">Automatización</button><button type="button" data-filter="Business Intelligence" aria-pressed="false">Business Intelligence</button><button type="button" data-filter="Operaciones" aria-pressed="false">Operaciones</button><button type="button" data-filter="IA y datos" aria-pressed="false">IA y datos</button>
+                </div>
+                <p class="project-count" data-project-count role="status" aria-live="polite">12 de 12 proyectos visibles</p>
                 <div class="project-list">
-                    <article class="project-card reveal">
-                        <img src="assets/images/dashboard-placeholder.svg" alt="Placeholder de tablero de indicadores para plataforma integral BI">
-                        <div class="project-content">
-                            <h3>Plataforma integral de Business Intelligence</h3>
-                            <p>Arquitectura completa para centralizar información empresarial, automatizar cargas y publicar indicadores para diferentes áreas.</p>
-                            <div class="flow" aria-label="Flujo: SQL Server, Python ETL, PostgreSQL Data Warehouse, Power BI">
-                                <span>SQL Server</span>
-                                <b>→</b>
-                                <span>Python ETL</span>
-                                <b>→</b>
-                                <span>PostgreSQL DW</span>
-                                <b>→</b>
-                                <span>Power BI</span>
-                            </div>
-                            <p class="tech-line">SQL Server · Python · PostgreSQL · Power BI · Windows Server</p>
-                            <a class="btn btn-secondary" href="mailto:lgaray@lgsmartbi.com?subject=Plataforma%20integral%20BI" data-email-link data-subject="Plataforma integral BI">Solicitar información</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <img src="assets/images/data-warehouse-placeholder.svg" alt="Placeholder de arquitectura de Data Warehouse comercial">
-                        <div class="project-content">
-                            <h3>Data Warehouse comercial</h3>
-                            <p>Modelo dimensional para integrar ventas, costos, clientes, productos, sucursales y proveedores en una única fuente de información.</p>
-                            <p class="tech-line">PostgreSQL · SQL · Modelado dimensional · Power BI</p>
-                            <a class="btn btn-secondary" href="mailto:lgaray@lgsmartbi.com?subject=Data%20Warehouse%20comercial" data-email-link data-subject="Data Warehouse comercial">Solicitar información</a>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <img src="assets/images/python-placeholder.svg" alt="Placeholder de automatización con Python para archivos Excel y CSV">
-                        <div class="project-content">
-                            <h3>Automatización con Python</h3>
-                            <p>Herramientas para procesar archivos Excel y CSV, validar datos, transformar información y reducir tareas manuales.</p>
-                            <p class="tech-line">Python · Pandas · Excel · CSV · Automatización Windows</p>
-                            <a class="btn btn-secondary" href="mailto:lgaray@lgsmartbi.com?subject=Automatizaci%C3%B3n%20con%20Python" data-email-link data-subject="Automatización con Python">Solicitar información</a>
-                        </div>
-                    </article>
+                <!-- portfolio:cards:start -->
+<article class="project-card" data-category="Finanzas">
+        <img src="assets/images/lg-001.svg" alt="Ilustración sintética del proyecto Conciliación bancaria automatizada" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-001 · Finanzas</span>
+            <h3>Conciliación bancaria automatizada</h3>
+            <p>Identifica coincidencias, diferencias y operaciones pendientes entre movimientos bancarios y registros administrativos.</p>
+            <span class="status-tag functional">Demostración funcional con datos sintéticos</span>
+            <p class="tech-line">JavaScript · Reglas de conciliación · HTML · CSS</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/conciliacion-bancaria.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/conciliacion-bancaria.html#demostracion">Ver demostración</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Finanzas">
+        <img src="assets/images/lg-002.svg" alt="Ilustración sintética del proyecto Conciliación contable ERP vs Libro Mayor" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-002 · Finanzas</span>
+            <h3>Conciliación contable ERP vs Libro Mayor</h3>
+            <p>Compara movimientos de gestión y contabilidad, identifica conciliaciones y excepciones por documento.</p>
+            <span class="status-tag functional">Demostración funcional con datos sintéticos</span>
+            <p class="tech-line">JavaScript · Contabilidad · Validación de datos</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/conciliacion-contable.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/conciliacion-contable.html#demostracion">Ver demostración</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Automatización">
+        <img src="assets/images/lg-003.svg" alt="Ilustración sintética del proyecto Automatización ERP con Python y RPA" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-003 · Automatización</span>
+            <h3>Automatización ERP con Python y RPA</h3>
+            <p>Ilustra el ciclo de extracción de reportes, validación de archivos y control de ejecución.</p>
+            <span class="status-tag simulation">Simulación interactiva, sin conexión ERP</span>
+            <p class="tech-line">Python (arquitectura) · RPA · Automatización Windows</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/automatizacion-erp-rpa.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/automatizacion-erp-rpa.html#demostracion">Ver simulación</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Data Engineering">
+        <img src="assets/images/lg-004.svg" alt="Ilustración sintética del proyecto Monitor incremental de archivos Parquet" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-004 · Data Engineering</span>
+            <h3>Monitor incremental de archivos Parquet</h3>
+            <p>Representa detección de modificaciones, firmas de entrada y procesamiento único por evento.</p>
+            <span class="status-tag simulation">Simulación interactiva de eventos</span>
+            <p class="tech-line">Python (arquitectura) · Parquet · Eventos · Hash</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/monitor-parquet.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/monitor-parquet.html#demostracion">Ver simulación</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Data Engineering">
+        <img src="assets/images/lg-005.svg" alt="Ilustración sintética del proyecto Pipeline ETL y tablas derivadas" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-005 · Data Engineering</span>
+            <h3>Pipeline ETL y tablas derivadas</h3>
+            <p>Ejecuta limpieza, normalización y agregación de ventas ficticias y muestra registros rechazados.</p>
+            <span class="status-tag functional">Demostración funcional de transformaciones sintéticas</span>
+            <p class="tech-line">JavaScript (demo) · Python/SQL (arquitectura) · ETL</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/pipeline-etl.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/pipeline-etl.html#demostracion">Ver demostración</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Data Engineering">
+        <img src="assets/images/lg-006.svg" alt="Ilustración sintética del proyecto Data Warehouse comercial" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-006 · Data Engineering</span>
+            <h3>Data Warehouse comercial</h3>
+            <p>Explora dimensiones, hechos y agregaciones de ventas en un modelo dimensional de ejemplo.</p>
+            <span class="status-tag functional">Consultas analíticas funcionales con datos sintéticos</span>
+            <p class="tech-line">PostgreSQL (arquitectura) · SQL · Modelo estrella · JavaScript (demo)</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/data-warehouse-comercial.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/data-warehouse-comercial.html#demostracion">Ver demostración</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Business Intelligence">
+        <img src="assets/images/lg-007.svg" alt="Ilustración sintética del proyecto Plataforma integral BI y Power BI" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-007 · Business Intelligence</span>
+            <h3>Plataforma integral BI y Power BI</h3>
+            <p>Presenta indicadores comerciales filtrables y un esquema de arquitectura analítica integral.</p>
+            <span class="status-tag simulation">Simulación interactiva, no es Power BI</span>
+            <p class="tech-line">Power BI / DAX (experiencia) · SQL Server (arquitectura) · Python (arquitectura) · PostgreSQL (arquitectura)</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/plataforma-bi.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/plataforma-bi.html#demostracion">Ver simulación</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Operaciones">
+        <img src="assets/images/lg-008.svg" alt="Ilustración sintética del proyecto Control de inventarios y producción" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-008 · Operaciones</span>
+            <h3>Control de inventarios y producción</h3>
+            <p>Calcula materiales por receta ficticia, compara con existencias de ejemplo y detecta faltantes para producción.</p>
+            <span class="status-tag functional">Calculadora funcional de consumo teórico</span>
+            <p class="tech-line">Modelado BOM · JavaScript · Inventarios</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/inventario-produccion.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/inventario-produccion.html#demostracion">Ver demostración</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Finanzas">
+        <img src="assets/images/lg-009.svg" alt="Ilustración sintética del proyecto Conciliación de procesadoras" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-009 · Finanzas</span>
+            <h3>Conciliación de procesadoras</h3>
+            <p>Cruza operaciones de venta con liquidaciones de un procesador ficticio e identifica diferencias.</p>
+            <span class="status-tag functional">Conciliación funcional de movimientos sintéticos</span>
+            <p class="tech-line">JavaScript · Reglas de conciliación · Pagos electrónicos</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/conciliacion-procesadoras.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/conciliacion-procesadoras.html#demostracion">Ver demostración</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="IA y datos">
+        <img src="assets/images/lg-010.svg" alt="Ilustración sintética del proyecto Inteligencia artificial aplicada a datos" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-010 · IA y datos</span>
+            <h3>Inteligencia artificial aplicada a datos</h3>
+            <p>Muestra cómo podría verse un asistente que responde preguntas sobre indicadores de una empresa ficticia.</p>
+            <span class="status-tag simulation">Simulación basada en reglas, sin modelo de IA</span>
+            <p class="tech-line">LLM (conceptual) · MCP (conceptual) · SQL (conceptual) · JavaScript (demo)</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/ia-datos.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/ia-datos.html#demostracion">Ver simulación</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Automatización">
+        <img src="assets/images/lg-011.svg" alt="Ilustración sintética del proyecto Monitoreo de automatizaciones" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-011 · Automatización</span>
+            <h3>Monitoreo de automatizaciones</h3>
+            <p>Visualiza ejecuciones, alertas y recuperación de fallos con un historial sintético.</p>
+            <span class="status-tag simulation">Simulación interactiva de estados</span>
+            <p class="tech-line">Python (arquitectura) · Logs · Monitoreo · JavaScript (demo)</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/monitoreo-ejecuciones.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/monitoreo-ejecuciones.html#demostracion">Ver simulación</a></div>
+        </div>
+    </article>
+<article class="project-card" data-category="Automatización">
+        <img src="assets/images/lg-012.svg" alt="Ilustración sintética del proyecto Automatización de archivos Excel y CSV" loading="lazy" width="520" height="248">
+        <div class="project-content">
+            <span class="project-code">LG-012 · Automatización</span>
+            <h3>Automatización de archivos Excel y CSV</h3>
+            <p>Convierte archivos CSV pequeños de ejemplo entre separadores y permite descargar el resultado.</p>
+            <span class="status-tag functional">Herramienta funcional para CSV en navegador</span>
+            <p class="tech-line">Python / Pandas (arquitectura) · Excel (arquitectura) · CSV · JavaScript (demo)</p>
+            <div class="project-actions"><a class="btn btn-secondary" href="proyectos/automatizacion-excel-csv.html">Ver proyecto</a><a class="btn btn-primary" href="proyectos/automatizacion-excel-csv.html#demostracion">Ver demostración</a></div>
+        </div>
+    </article>
+                <!-- portfolio:cards:end -->
                 </div>
             </div>
         </section>
@@ -351,10 +452,10 @@
                     <textarea id="message" name="message" rows="5" required placeholder="Quiero mejorar reportes, centralizar datos o automatizar un proceso..."></textarea>
 
                     <div class="form-actions">
-                        <button class="btn btn-primary" type="submit">Enviar consulta</button>
+                        <button class="btn btn-primary" type="submit">Preparar consulta por correo</button>
                         <a class="btn btn-secondary" href="mailto:lgaray@lgsmartbi.com" data-email-link>Enviar por correo</a>
                     </div>
-                    <p class="form-note">El formulario abre el cliente de correo con el mensaje cargado. Si JavaScript está deshabilitado, se enviará mediante correo.</p>
+                    <p class="form-note">El formulario prepara un mensaje en tu aplicación de correo. Revisalo y enviá desde allí. Si no tenés una aplicación configurada, escribí a lgaray@lgsmartbi.com.</p>
                 </form>
             </div>
         </section>
@@ -368,5 +469,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="assets/js/portfolio-index.js"></script>
 </body>
 </html>

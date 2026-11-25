@@ -12,3 +12,4 @@
 *.mdb
 Thumbs.db
 .DS_Store
+/auditoria-local/

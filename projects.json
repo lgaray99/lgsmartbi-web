@@ -1,0 +1,348 @@
+[
+  {
+    "id": "LG-001",
+    "slug": "conciliacion-bancaria",
+    "title": "Conciliación bancaria automatizada",
+    "category": "Finanzas",
+    "type": "functional",
+    "status": "Demostración funcional con datos sintéticos",
+    "summary": "Identifica coincidencias, diferencias y operaciones pendientes entre movimientos bancarios y registros administrativos.",
+    "problem": "Las diferencias entre extractos bancarios y registros internos requieren revisiones manuales y pueden ocultar movimientos faltantes o importes incorrectos.",
+    "solution": "Motor independiente en navegador que cruza referencias e importes, detecta duplicados y clasifica excepciones usando un conjunto de operaciones completamente ficticias.",
+    "architecture": [
+      "Movimientos ficticios",
+      "Normalización",
+      "Reglas de conciliación",
+      "Excepciones"
+    ],
+    "technologies": [
+      "JavaScript",
+      "Reglas de conciliación",
+      "HTML",
+      "CSS"
+    ],
+    "benefits": [
+      "Priorización de excepciones",
+      "Mayor trazabilidad conceptual",
+      "Criterios de coincidencia auditables"
+    ],
+    "limitations": "No utiliza bancos reales, credenciales, APIs ni conexiones externas. Cruce por referencia e importe, sin emparejamientos por fecha, moneda o tolerancia."
+  },
+  {
+    "id": "LG-002",
+    "slug": "conciliacion-contable",
+    "title": "Conciliación contable ERP vs Libro Mayor",
+    "category": "Finanzas",
+    "type": "functional",
+    "status": "Demostración funcional con datos sintéticos",
+    "summary": "Compara movimientos de gestión y contabilidad, identifica conciliaciones y excepciones por documento.",
+    "problem": "Diferencias de imputación o documentos ausentes dificultan el cierre y la validación del Libro Mayor frente a la gestión operativa.",
+    "solution": "Cruce independiente de registros ficticios por documento e importe con separación de partidas conciliadas, faltantes y montos distintos.",
+    "architecture": [
+      "Gestión sintética",
+      "Libro Mayor sintético",
+      "Validación documental",
+      "Resultado bidireccional"
+    ],
+    "technologies": [
+      "JavaScript",
+      "Contabilidad",
+      "Validación de datos"
+    ],
+    "benefits": [
+      "Visibilidad de partidas pendientes",
+      "Revisión bidireccional",
+      "Clasificación verificable"
+    ],
+    "limitations": "No realiza asientos contables ni consulta ERP. No sustituye controles contables profesionales."
+  },
+  {
+    "id": "LG-003",
+    "slug": "automatizacion-erp-rpa",
+    "title": "Automatización ERP con Python y RPA",
+    "category": "Automatización",
+    "type": "simulation",
+    "status": "Simulación interactiva, sin conexión ERP",
+    "summary": "Ilustra el ciclo de extracción de reportes, validación de archivos y control de ejecución.",
+    "problem": "La descarga repetitiva de reportes desde sistemas empresariales consume tiempo y depende de acciones manuales.",
+    "solution": "Representación paso a paso de una ejecución de RPA, con estados, eventos, validaciones y recuperación ficticia.",
+    "architecture": [
+      "Programador",
+      "Robot conceptual",
+      "Validación",
+      "Historial"
+    ],
+    "technologies": [
+      "Python (arquitectura)",
+      "RPA",
+      "Automatización Windows"
+    ],
+    "benefits": [
+      "Documentación del flujo",
+      "Visibilidad del manejo de errores",
+      "Base para una implementación real"
+    ],
+    "limitations": "No controla interfaces, no ejecuta Python y no se conecta a ningún ERP. Los eventos se simulan en el navegador."
+  },
+  {
+    "id": "LG-004",
+    "slug": "monitor-parquet",
+    "title": "Monitor incremental de archivos Parquet",
+    "category": "Data Engineering",
+    "type": "simulation",
+    "status": "Simulación interactiva de eventos",
+    "summary": "Representa detección de modificaciones, firmas de entrada y procesamiento único por evento.",
+    "problem": "El reprocesamiento innecesario y la falta de trazabilidad provocan cargas redundantes y errores operativos.",
+    "solution": "Simulación de cambios de archivos con cola, estado de procesamiento e invalidación controlada de dependencias.",
+    "architecture": [
+      "Archivos sintéticos",
+      "Detección de eventos",
+      "Cola de cambios",
+      "Salida derivada"
+    ],
+    "technologies": [
+      "Python (arquitectura)",
+      "Parquet",
+      "Eventos",
+      "Hash"
+    ],
+    "benefits": [
+      "Explicación de la estrategia incremental",
+      "Distinción entre cambios y revisiones periódicas",
+      "Visibilidad de dependencias"
+    ],
+    "limitations": "No lee Parquet ni supervisa archivos del equipo: se generan eventos ficticios en memoria."
+  },
+  {
+    "id": "LG-005",
+    "slug": "pipeline-etl",
+    "title": "Pipeline ETL y tablas derivadas",
+    "category": "Data Engineering",
+    "type": "functional",
+    "status": "Demostración funcional de transformaciones sintéticas",
+    "summary": "Ejecuta limpieza, normalización y agregación de ventas ficticias y muestra registros rechazados.",
+    "problem": "Fuentes heterogéneas requieren control de tipos, duplicados y validaciones antes de alimentar informes.",
+    "solution": "Motor JavaScript de ejemplo que aplica reglas ETL verificables a registros sintéticos y produce un resumen reproducible.",
+    "architecture": [
+      "Fuente sintética",
+      "Validación",
+      "Transformación",
+      "Tabla derivada"
+    ],
+    "technologies": [
+      "JavaScript (demo)",
+      "Python/SQL (arquitectura)",
+      "ETL"
+    ],
+    "benefits": [
+      "Reglas inspeccionables",
+      "Separación de válidos y rechazados",
+      "Reproducibilidad de resultados"
+    ],
+    "limitations": "La demostración se ejecuta con JavaScript y no mueve datos entre bases reales."
+  },
+  {
+    "id": "LG-006",
+    "slug": "data-warehouse-comercial",
+    "title": "Data Warehouse comercial",
+    "category": "Data Engineering",
+    "type": "functional",
+    "status": "Consultas analíticas funcionales con datos sintéticos",
+    "summary": "Explora dimensiones, hechos y agregaciones de ventas en un modelo dimensional de ejemplo.",
+    "problem": "Los reportes lentos y los cálculos inconsistentes aparecen cuando cada área interpreta por separado datos operativos.",
+    "solution": "Modelo dimensional de referencia para integrar ventas, costos, clientes, productos, sucursales y proveedores. La demostración se limita a agregaciones reales de ventas sintéticas en el navegador; las demás entidades pertenecen al alcance conceptual.",
+    "architecture": [
+      "Fuentes operativas",
+      "Staging",
+      "Hechos y dimensiones",
+      "Indicadores"
+    ],
+    "technologies": [
+      "PostgreSQL (arquitectura)",
+      "SQL",
+      "Modelo estrella",
+      "JavaScript (demo)"
+    ],
+    "benefits": [
+      "Modelo comprensible",
+      "Indicadores consistentes de ejemplo",
+      "Separación entre capas"
+    ],
+    "limitations": "No se conecta a PostgreSQL; los agregados se calculan sobre un pequeño dataset en memoria."
+  },
+  {
+    "id": "LG-007",
+    "slug": "plataforma-bi",
+    "title": "Plataforma integral BI y Power BI",
+    "category": "Business Intelligence",
+    "type": "simulation",
+    "status": "Simulación interactiva, no es Power BI",
+    "summary": "Presenta indicadores comerciales filtrables y un esquema de arquitectura analítica integral.",
+    "problem": "La dirección necesita integrar y analizar información de múltiples sistemas con indicadores estables.",
+    "solution": "Arquitectura completa de referencia para centralizar información empresarial, automatizar cargas y publicar indicadores para diferentes áreas: SQL Server, Python ETL, PostgreSQL Data Warehouse y Power BI. La demostración es un tablero independiente en JavaScript con ventas sintéticas.",
+    "architecture": [
+      "SQL Server (conceptual)",
+      "Python ETL (conceptual)",
+      "PostgreSQL DW (conceptual)",
+      "Power BI (conceptual)"
+    ],
+    "technologies": [
+      "Power BI / DAX (experiencia)",
+      "SQL Server (arquitectura)",
+      "Python (arquitectura)",
+      "PostgreSQL (arquitectura)",
+      "Windows Server (arquitectura)",
+      "JavaScript (demo)"
+    ],
+    "benefits": [
+      "Experiencia visual navegable",
+      "Narrativa de arquitectura",
+      "Interacción con filtros"
+    ],
+    "limitations": "No incorpora un informe Power BI real ni acceso a Power BI Service. Visualización creada solo para este portafolio."
+  },
+  {
+    "id": "LG-008",
+    "slug": "inventario-produccion",
+    "title": "Control de inventarios y producción",
+    "category": "Operaciones",
+    "type": "functional",
+    "status": "Calculadora funcional de consumo teórico",
+    "summary": "Calcula materiales por receta ficticia, compara con existencias de ejemplo y detecta faltantes para producción.",
+    "problem": "Producción e inventarios necesitan separar consumo esperado de movimientos físicos realmente registrados.",
+    "solution": "Calculadora BOM local que multiplica cantidades por receta y compara requerimientos con existencias sintéticas.",
+    "architecture": [
+      "Receta sintética",
+      "Producción objetivo",
+      "Cálculo BOM",
+      "Consumo teórico"
+    ],
+    "technologies": [
+      "Modelado BOM",
+      "JavaScript",
+      "Inventarios"
+    ],
+    "benefits": [
+      "Estimación reproducible",
+      "Separación entre teórico y físico",
+      "Explicación de trazabilidad"
+    ],
+    "limitations": "Consumo teórico y existencias ficticias: no registra movimientos físicos, reservas, mermas ni órdenes reales."
+  },
+  {
+    "id": "LG-009",
+    "slug": "conciliacion-procesadoras",
+    "title": "Conciliación de procesadoras",
+    "category": "Finanzas",
+    "type": "functional",
+    "status": "Conciliación funcional de movimientos sintéticos",
+    "summary": "Cruza operaciones de venta con liquidaciones de un procesador ficticio e identifica diferencias.",
+    "problem": "Las ventas con tarjetas pueden liquidarse en momentos distintos, con comisiones, diferencias o ausencias de acreditación.",
+    "solution": "Conjunto sintético de cupones y liquidaciones con validación por identificador e importe neto previsto.",
+    "architecture": [
+      "Ventas sintéticas",
+      "Liquidaciones sintéticas",
+      "Cruce y comisión",
+      "Excepciones"
+    ],
+    "technologies": [
+      "JavaScript",
+      "Reglas de conciliación",
+      "Pagos electrónicos"
+    ],
+    "benefits": [
+      "Detección de liquidaciones faltantes",
+      "Comprobación de comisiones",
+      "Separación de eventos"
+    ],
+    "limitations": "No contiene datos ni reglas propietarias de procesadoras reales. La comisión es una hipótesis didáctica, no una tarifa contractual."
+  },
+  {
+    "id": "LG-010",
+    "slug": "ia-datos",
+    "title": "Inteligencia artificial aplicada a datos",
+    "category": "IA y datos",
+    "type": "simulation",
+    "status": "Simulación basada en reglas, sin modelo de IA",
+    "summary": "Muestra cómo podría verse un asistente que responde preguntas sobre indicadores de una empresa ficticia.",
+    "problem": "Los usuarios de negocio desean formular preguntas sobre datos sin escribir consultas SQL.",
+    "solution": "Interfaz de preguntas predeterminadas con respuestas calculadas por reglas. Documenta la arquitectura para una futura integración real.",
+    "architecture": [
+      "Pregunta",
+      "Control de acceso (conceptual)",
+      "Consulta permitida",
+      "Respuesta ilustrativa"
+    ],
+    "technologies": [
+      "LLM (conceptual)",
+      "MCP (conceptual)",
+      "SQL (conceptual)",
+      "JavaScript (demo)"
+    ],
+    "benefits": [
+      "Exploración de casos de uso",
+      "Exposición de controles necesarios",
+      "Separación clara de simulación e IA real"
+    ],
+    "limitations": "No usa modelo de lenguaje, no entiende preguntas libres y no consulta fuentes externas."
+  },
+  {
+    "id": "LG-011",
+    "slug": "monitoreo-ejecuciones",
+    "title": "Monitoreo de automatizaciones",
+    "category": "Automatización",
+    "type": "simulation",
+    "status": "Simulación interactiva de estados",
+    "summary": "Visualiza ejecuciones, alertas y recuperación de fallos con un historial sintético.",
+    "problem": "Sin observabilidad es difícil distinguir una ejecución correcta de una fallida o incompleta.",
+    "solution": "Consola conceptual de incidentes que cambia estados ficticios y genera eventos reproducibles.",
+    "architecture": [
+      "Jobs simulados",
+      "Estados",
+      "Alertas",
+      "Historial"
+    ],
+    "technologies": [
+      "Python (arquitectura)",
+      "Logs",
+      "Monitoreo",
+      "JavaScript (demo)"
+    ],
+    "benefits": [
+      "Visibilidad del flujo",
+      "Explicación de alertas",
+      "Modelo de seguimiento"
+    ],
+    "limitations": "No supervisa tareas programadas reales ni envía notificaciones; opera únicamente en memoria."
+  },
+  {
+    "id": "LG-012",
+    "slug": "automatizacion-excel-csv",
+    "title": "Automatización de archivos Excel y CSV",
+    "category": "Automatización",
+    "type": "functional",
+    "status": "Herramienta funcional para CSV en navegador",
+    "summary": "Convierte archivos CSV pequeños de ejemplo entre separadores y permite descargar el resultado.",
+    "problem": "La recepción de archivos con diferentes delimitadores puede dificultar cargas y conciliaciones.",
+    "solution": "Arquitectura de herramientas Python/Pandas para procesar archivos Excel y CSV, validar datos, transformar información y reducir tareas manuales. La demostración ejecutable es un conversor CSV local con selección explícita de delimitador, validación de estructura, vista previa y descarga.",
+    "architecture": [
+      "CSV local",
+      "Lectura en navegador",
+      "Normalización",
+      "Descarga CSV"
+    ],
+    "technologies": [
+      "Python / Pandas (arquitectura)",
+      "Excel (arquitectura)",
+      "CSV",
+      "JavaScript (demo)",
+      "Automatización Windows (arquitectura)"
+    ],
+    "benefits": [
+      "Procesamiento local",
+      "Archivo descargable",
+      "Conversión visible"
+    ],
+    "limitations": "No lee .xlsx/.xls ni ejecuta macros. La demostración trabaja solo con CSV; una integración XLSX requiere un desarrollo adicional."
+  }
+]

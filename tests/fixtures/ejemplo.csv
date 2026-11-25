@@ -1,0 +1,5 @@
+codigo,producto,cantidad,comentario
+001,Chipá,3,"Ejemplo, con coma"
+002,Pan integral,,"Dos líneas
+línea dos"
+003,Budín,1,=1+1
