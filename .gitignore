@@ -13,3 +13,4 @@
 Thumbs.db
 .DS_Store
 /auditoria-local/
+node_modules/

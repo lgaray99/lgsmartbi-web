@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#08111F">
-    <meta name="description" content="Ilustra el ciclo de extracción de reportes, validación de archivos y control de ejecución.">
+    <meta name="description" content="Recorre una cola de tareas con etapas, errores reproducibles, reintentos configurables y bitácora exportable.">
     <title>LG-003 · Automatización ERP con Python y RPA | LG Smart BI</title>
     <link rel="icon" href="../assets/logo/logo-placeholder.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,25 +20,25 @@
         <section class="case-hero" aria-labelledby="case-title">
             <span class="project-code">LG-003 / Automatización</span>
             <h1 id="case-title">Automatización ERP con Python y RPA</h1>
-            <p class="case-lead">Ilustra el ciclo de extracción de reportes, validación de archivos y control de ejecución.</p>
-            <span class="status-tag simulation">Simulación interactiva, sin conexión ERP</span>
+            <p class="case-lead">Recorre una cola de tareas con etapas, errores reproducibles, reintentos configurables y bitácora exportable.</p>
+            <span class="status-tag simulation">Simulador determinista RPA; sin conexión ERP</span>
             <div class="case-tags"><span>Python (arquitectura)</span><span>RPA</span><span>Automatización Windows</span></div>
         </section>
         <img class="case-illustration" src="../assets/images/lg-003.svg" alt="Arquitectura ilustrativa de Automatización ERP con Python y RPA" width="520" height="248">
         <div class="case-grid">
             <div class="case-main">
                 <section class="case-card"><h2>Problema empresarial</h2><p>La descarga repetitiva de reportes desde sistemas empresariales consume tiempo y depende de acciones manuales.</p></section>
-                <section class="case-card"><h2>Solución representativa</h2><p>Representación paso a paso de una ejecución de RPA, con estados, eventos, validaciones y recuperación ficticia.</p><p class="demo-small">Implementación independiente de demostración. La experiencia y el enfoque técnico se presentan sin reutilizar código o datos de clientes.</p></section>
-                <section class="case-card"><h2>Arquitectura</h2><div class="architecture" aria-label="Etapas de arquitectura"><span>Programador</span><b aria-hidden="true">→</b><span>Robot conceptual</span><b aria-hidden="true">→</b><span>Validación</span><b aria-hidden="true">→</b><span>Historial</span></div></section>
+                <section class="case-card"><h2>Solución técnica</h2><p>Máquina de estados JavaScript: inicio, obtención, validación y registro; error transitorio recuperable y error permanente con límite de intentos.</p><p class="demo-small">Implementación independiente de demostración. La experiencia y el enfoque técnico se presentan sin reutilizar código o datos de clientes.</p></section>
+                <section class="case-card"><h2>Arquitectura</h2><div class="architecture" aria-label="Etapas de arquitectura"><span>Cola sintética</span><b aria-hidden="true">→</b><span>Motor de estados</span><b aria-hidden="true">→</b><span>Validación y reintentos</span><b aria-hidden="true">→</b><span>Bitácora local</span></div></section>
             </div>
             <aside class="case-side" aria-label="Información del proyecto">
                 <section class="case-card"><h2>Beneficios esperados</h2><ul><li>Documentación del flujo</li><li>Visibilidad del manejo de errores</li><li>Base para una implementación real</li></ul></section>
-                <section class="case-card"><h2>Alcance y límites</h2><p>No controla interfaces, no ejecuta Python y no se conecta a ningún ERP. Los eventos se simulan en el navegador.</p></section>
+                <section class="case-card"><h2>Alcance y límites</h2><p>No controla interfaces ni ejecuta Python. Reportes y tiempos modelados son sintéticos; no se producen exportaciones desde ERP. El CSV descargado contiene la actividad de la simulación.</p></section>
             </aside>
         </div>
         <section id="demostracion" class="demo-shell" aria-labelledby="demo-title">
             <h2 id="demo-title">Simulación interactiva — entorno ficticio</h2>
-            <p class="demo-description">Empresa ficticia: Horizonte Demo S.A. · Moneda: guaraníes (PYG), sin decimales. Todos los nombres, referencias e importes son sintéticos. Las operaciones ocurren en el navegador y no acceden a infraestructura empresarial.</p>
+            <p class="demo-description">Empresa ficticia: DemoComercial S.A. · Moneda: guaraníes (PYG), sin decimales. Todos los nombres, referencias e importes son sintéticos. Las operaciones ocurren en el navegador y no acceden a infraestructura empresarial.</p>
             <noscript><p>Activá JavaScript para ejecutar esta demostración. La ficha técnica permanece disponible.</p></noscript>
             <div data-demo="LG-003"><p>Cargando demostración local…</p></div>
         </section>
@@ -49,6 +49,11 @@
         </section>
     </main>
     <footer class="case-footer"><div class="case-container">LG Smart BI · Portafolio técnico · Paraguay · <a href="../index.html#proyectos">Regresar a proyectos</a></div></footer>
-    <script src="../assets/js/demo-engine.js"></script><script src="../assets/js/demo-ui.js"></script>
+    <script src="../assets/js/demo-engine.js"></script>
+    <script src="../assets/js/demo-common.js"></script>
+    <script src="../assets/js/commercial-data.js"></script>
+    <script src="../assets/js/commercial-engine.js"></script>
+    <script src="../assets/js/operations-engine.js"></script>
+    <script src="../assets/js/operations-ui.js"></script>
 </body>
 </html>

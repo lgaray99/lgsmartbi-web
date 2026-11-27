@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#08111F">
-    <meta name="description" content="Muestra cómo podría verse un asistente que responde preguntas sobre indicadores de una empresa ficticia.">
+    <meta name="description" content="Ejecuta consultas permitidas sobre ventas y márgenes, muestra su evidencia y explica una arquitectura futura con LLM.">
     <title>LG-010 · Inteligencia artificial aplicada a datos | LG Smart BI</title>
     <link rel="icon" href="../assets/logo/logo-placeholder.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,25 +20,25 @@
         <section class="case-hero" aria-labelledby="case-title">
             <span class="project-code">LG-010 / IA y datos</span>
             <h1 id="case-title">Inteligencia artificial aplicada a datos</h1>
-            <p class="case-lead">Muestra cómo podría verse un asistente que responde preguntas sobre indicadores de una empresa ficticia.</p>
-            <span class="status-tag simulation">Simulación basada en reglas, sin modelo de IA</span>
+            <p class="case-lead">Ejecuta consultas permitidas sobre ventas y márgenes, muestra su evidencia y explica una arquitectura futura con LLM.</p>
+            <span class="status-tag functional">Consultas guiadas funcionales; sin IA ni LLM</span>
             <div class="case-tags"><span>LLM (conceptual)</span><span>MCP (conceptual)</span><span>SQL (conceptual)</span><span>JavaScript (demo)</span></div>
         </section>
         <img class="case-illustration" src="../assets/images/lg-010.svg" alt="Arquitectura ilustrativa de Inteligencia artificial aplicada a datos" width="520" height="248">
         <div class="case-grid">
             <div class="case-main">
                 <section class="case-card"><h2>Problema empresarial</h2><p>Los usuarios de negocio desean formular preguntas sobre datos sin escribir consultas SQL.</p></section>
-                <section class="case-card"><h2>Solución representativa</h2><p>Interfaz de preguntas predeterminadas con respuestas calculadas por reglas. Documenta la arquitectura para una futura integración real.</p><p class="demo-small">Implementación independiente de demostración. La experiencia y el enfoque técnico se presentan sin reutilizar código o datos de clientes.</p></section>
+                <section class="case-card"><h2>Solución técnica</h2><p>Cinco reglas analíticas JavaScript con filtros y evidencia exportable sobre los mismos hechos de LG-005/006/007; sin respuestas generativas.</p><p class="demo-small">Implementación independiente de demostración. La experiencia y el enfoque técnico se presentan sin reutilizar código o datos de clientes.</p></section>
                 <section class="case-card"><h2>Arquitectura</h2><div class="architecture" aria-label="Etapas de arquitectura"><span>Pregunta</span><b aria-hidden="true">→</b><span>Control de acceso (conceptual)</span><b aria-hidden="true">→</b><span>Consulta permitida</span><b aria-hidden="true">→</b><span>Respuesta ilustrativa</span></div></section>
             </div>
             <aside class="case-side" aria-label="Información del proyecto">
                 <section class="case-card"><h2>Beneficios esperados</h2><ul><li>Exploración de casos de uso</li><li>Exposición de controles necesarios</li><li>Separación clara de simulación e IA real</li></ul></section>
-                <section class="case-card"><h2>Alcance y límites</h2><p>No usa modelo de lenguaje, no entiende preguntas libres y no consulta fuentes externas.</p></section>
+                <section class="case-card"><h2>Alcance y límites</h2><p>No usa IA, no interpreta preguntas libres y no consulta SQL ni servicios externos. Una implementación real con LLM requeriría identidad, herramientas de solo lectura, permisos y evaluación.</p></section>
             </aside>
         </div>
         <section id="demostracion" class="demo-shell" aria-labelledby="demo-title">
-            <h2 id="demo-title">Simulación interactiva — entorno ficticio</h2>
-            <p class="demo-description">Empresa ficticia: Horizonte Demo S.A. · Moneda: guaraníes (PYG), sin decimales. Todos los nombres, referencias e importes son sintéticos. Las operaciones ocurren en el navegador y no acceden a infraestructura empresarial.</p>
+            <h2 id="demo-title">Demostración funcional — entorno ficticio</h2>
+            <p class="demo-description">Empresa ficticia: DemoComercial S.A. · Moneda: guaraníes (PYG), sin decimales. Todos los nombres, referencias e importes son sintéticos. Las operaciones ocurren en el navegador y no acceden a infraestructura empresarial.</p>
             <noscript><p>Activá JavaScript para ejecutar esta demostración. La ficha técnica permanece disponible.</p></noscript>
             <div data-demo="LG-010"><p>Cargando demostración local…</p></div>
         </section>
@@ -49,6 +49,10 @@
         </section>
     </main>
     <footer class="case-footer"><div class="case-container">LG Smart BI · Portafolio técnico · Paraguay · <a href="../index.html#proyectos">Regresar a proyectos</a></div></footer>
-    <script src="../assets/js/demo-engine.js"></script><script src="../assets/js/demo-ui.js"></script>
+    <script src="../assets/js/demo-engine.js"></script>
+    <script src="../assets/js/demo-common.js"></script>
+    <script src="../assets/js/commercial-data.js"></script>
+    <script src="../assets/js/commercial-engine.js"></script>
+    <script src="../assets/js/commercial-ui.js"></script>
 </body>
 </html>

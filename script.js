@@ -2,7 +2,7 @@ const CONFIG = {
     whatsappNumber: "",
     email: "lgaray@lgsmartbi.com",
     linkedinUrl: "https://www.linkedin.com/in/luis-garay99/",
-    githubUrl: "https://github.com/Diosnel99",
+    githubUrl: "https://github.com/lgaray99",
     siteUrl: "https://lgsmartbi.com"
 };
 

@@ -45,6 +45,18 @@ for p in projects:
     benefits = ''.join(f'<li>{esc(x)}</li>' for x in p['benefits'])
     techs = ''.join(f'<span>{esc(x)}</span>' for x in p['technologies'])
     action = 'Demostración funcional' if p['type']=='functional' else ('Simulación interactiva' if p['type']=='simulation' else 'Proyecto conceptual')
+    script_names = ['demo-engine', 'demo-common']
+    if p['id'] == 'LG-012':
+        script_names += ['demo-ui']
+    else:
+        script_names += ['commercial-data', 'commercial-engine']
+        if p['id'] in ('LG-001', 'LG-002', 'LG-009'):
+            script_names += ['finance-engine', 'finance-ui']
+        elif p['id'] in ('LG-003', 'LG-004', 'LG-008', 'LG-011'):
+            script_names += ['operations-engine', 'operations-ui']
+        else:
+            script_names += ['commercial-ui']
+    script_markup = '\n    '.join(f'<script src="../assets/js/{name}.js"></script>' for name in script_names)
     content = f'''<!doctype html>
 <html lang="es">
 <head>
@@ -75,7 +87,7 @@ for p in projects:
         <div class="case-grid">
             <div class="case-main">
                 <section class="case-card"><h2>Problema empresarial</h2><p>{esc(p['problem'])}</p></section>
-                <section class="case-card"><h2>Solución representativa</h2><p>{esc(p['solution'])}</p><p class="demo-small">Implementación independiente de demostración. La experiencia y el enfoque técnico se presentan sin reutilizar código o datos de clientes.</p></section>
+                <section class="case-card"><h2>Solución técnica</h2><p>{esc(p['solution'])}</p><p class="demo-small">Implementación independiente de demostración. La experiencia y el enfoque técnico se presentan sin reutilizar código o datos de clientes.</p></section>
                 <section class="case-card"><h2>Arquitectura</h2><div class="architecture" aria-label="Etapas de arquitectura">{arch}</div></section>
             </div>
             <aside class="case-side" aria-label="Información del proyecto">
@@ -85,7 +97,7 @@ for p in projects:
         </div>
         <section id="demostracion" class="demo-shell" aria-labelledby="demo-title">
             <h2 id="demo-title">{action} — entorno ficticio</h2>
-            <p class="demo-description">Empresa ficticia: Horizonte Demo S.A. · Moneda: guaraníes (PYG), sin decimales. Todos los nombres, referencias e importes son sintéticos. Las operaciones ocurren en el navegador y no acceden a infraestructura empresarial.</p>
+            <p class="demo-description">Empresa ficticia: DemoComercial S.A. · Moneda: guaraníes (PYG), sin decimales. Todos los nombres, referencias e importes son sintéticos. Las operaciones ocurren en el navegador y no acceden a infraestructura empresarial.</p>
             <noscript><p>Activá JavaScript para ejecutar esta demostración. La ficha técnica permanece disponible.</p></noscript>
             <div data-demo="{esc(p['id'])}"><p>Cargando demostración local…</p></div>
         </section>
@@ -96,7 +108,7 @@ for p in projects:
         </section>
     </main>
     <footer class="case-footer"><div class="case-container">LG Smart BI · Portafolio técnico · Paraguay · <a href="../index.html#proyectos">Regresar a proyectos</a></div></footer>
-    <script src="../assets/js/demo-engine.js"></script><script src="../assets/js/demo-ui.js"></script>
+    {script_markup}
 </body>
 </html>
 '''
@@ -117,7 +129,7 @@ for p in projects:
         'LG-012': '<path d="M125 100h96v105h-96z M299 100h96v105h-96z M139 128h68m-68 20h68m-68 20h68m-46-40v60m24-60v60M313 128h68m-68 20h68m-68 20h68m-46-40v60m24-60v60M235 151h50m-12-11 12 11-12 11"/>'
     }
     mode = 'MOTOR LOCAL' if p['type']=='functional' else 'SIMULACIÓN'
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 248" role="img" aria-label="Esquema ilustrativo de {esc(p['title'])}"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#0D1B2A"/><stop offset="1" stop-color="#132C49"/></linearGradient></defs><rect width="520" height="248" fill="url(#g)"/><g stroke="#39A9DB" opacity=".1"><path d="M0 80H520M0 160H520M65 0V248M195 0V248M325 0V248M455 0V248"/></g><text x="24" y="33" fill="#65C5EF" font-family="Inter,Arial" font-size="14" font-weight="700">{esc(p['id'])} · {esc(p['category'])}</text><text x="24" y="57" fill="#CBD9E6" font-family="Inter,Arial" font-size="12">{mode} · DATOS SINTÉTICOS</text><g fill="none" stroke="#65C5EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{motifs[p['id']]}</g><text x="24" y="232" fill="#A9B6C4" font-family="Inter,Arial" font-size="11">LG SMART BI / HORIZONTE DEMO S.A.</text></svg>'''
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 248" role="img" aria-label="Esquema ilustrativo de {esc(p['title'])}"><defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#0D1B2A"/><stop offset="1" stop-color="#132C49"/></linearGradient></defs><rect width="520" height="248" fill="url(#g)"/><g stroke="#39A9DB" opacity=".1"><path d="M0 80H520M0 160H520M65 0V248M195 0V248M325 0V248M455 0V248"/></g><text x="24" y="33" fill="#65C5EF" font-family="Inter,Arial" font-size="14" font-weight="700">{esc(p['id'])} · {esc(p['category'])}</text><text x="24" y="57" fill="#CBD9E6" font-family="Inter,Arial" font-size="12">{mode} · DATOS SINTÉTICOS</text><g fill="none" stroke="#65C5EF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{motifs[p['id']]}</g><text x="24" y="232" fill="#A9B6C4" font-family="Inter,Arial" font-size="11">LG SMART BI / DEMOCOMERCIAL S.A.</text></svg>'''
     (ROOT/'assets'/'images'/f'{p["id"].lower()}.svg').write_text(svg,encoding='utf-8')
 
 print(f'Se generaron {len(projects)} páginas, {len(projects)} ilustraciones y el catálogo de tarjetas.')

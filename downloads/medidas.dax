@@ -1,0 +1,23 @@
+// Ejemplos para crear individualmente en la tabla Ventas de Power BI Desktop.
+// CSV ventas.csv importado como Ventas; solo contiene líneas válidas.
+// No es un PBIX/PBIP. Pendiente de ejecución en el motor DAX.
+Ventas = SUM('Ventas'[ventas_pyg])
+
+Costos = SUM('Ventas'[costos_pyg])
+
+Margen bruto = [Ventas] - [Costos]
+
+Margen porcentual = DIVIDE([Margen bruto], [Ventas])
+
+Cantidad vendida = SUM('Ventas'[cantidad])
+
+Documentos = DISTINCTCOUNT('Ventas'[documento])
+
+Ticket promedio = DIVIDE([Ventas], [Documentos])
+
+Clientes activos = DISTINCTCOUNT('Ventas'[cliente_id])
+
+Productos vendidos = DISTINCTCOUNT('Ventas'[producto_id])
+
+// Formatos sugeridos: importes #,##0; proporciones 0.00%; conteos #,##0.
+// Ticket recalculado con documentos distintos dentro del filtro, no promedio de tickets.

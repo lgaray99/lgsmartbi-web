@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#08111F">
-    <meta name="description" content="Calcula materiales por receta ficticia, compara con existencias de ejemplo y detecta faltantes para producción.">
+    <meta name="description" content="Explota recetas multinivel y compara consumo teórico, movimientos y stock sintéticos con validación de unidades.">
     <title>LG-008 · Control de inventarios y producción | LG Smart BI</title>
     <link rel="icon" href="../assets/logo/logo-placeholder.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@
         <section class="case-hero" aria-labelledby="case-title">
             <span class="project-code">LG-008 / Operaciones</span>
             <h1 id="case-title">Control de inventarios y producción</h1>
-            <p class="case-lead">Calcula materiales por receta ficticia, compara con existencias de ejemplo y detecta faltantes para producción.</p>
+            <p class="case-lead">Explota recetas multinivel y compara consumo teórico, movimientos y stock sintéticos con validación de unidades.</p>
             <span class="status-tag functional">Calculadora funcional de consumo teórico</span>
             <div class="case-tags"><span>Modelado BOM</span><span>JavaScript</span><span>Inventarios</span></div>
         </section>
@@ -28,17 +28,17 @@
         <div class="case-grid">
             <div class="case-main">
                 <section class="case-card"><h2>Problema empresarial</h2><p>Producción e inventarios necesitan separar consumo esperado de movimientos físicos realmente registrados.</p></section>
-                <section class="case-card"><h2>Solución representativa</h2><p>Calculadora BOM local que multiplica cantidades por receta y compara requerimientos con existencias sintéticas.</p><p class="demo-small">Implementación independiente de demostración. La experiencia y el enfoque técnico se presentan sin reutilizar código o datos de clientes.</p></section>
+                <section class="case-card"><h2>Solución técnica</h2><p>Motor BOM con expansión recursiva, agregación por materia prima, conversiones exactas de masa/volumen y rechazo de ciclos, componentes repetidos y producción inválida.</p><p class="demo-small">Implementación independiente de demostración. La experiencia y el enfoque técnico se presentan sin reutilizar código o datos de clientes.</p></section>
                 <section class="case-card"><h2>Arquitectura</h2><div class="architecture" aria-label="Etapas de arquitectura"><span>Receta sintética</span><b aria-hidden="true">→</b><span>Producción objetivo</span><b aria-hidden="true">→</b><span>Cálculo BOM</span><b aria-hidden="true">→</b><span>Consumo teórico</span></div></section>
             </div>
             <aside class="case-side" aria-label="Información del proyecto">
                 <section class="case-card"><h2>Beneficios esperados</h2><ul><li>Estimación reproducible</li><li>Separación entre teórico y físico</li><li>Explicación de trazabilidad</li></ul></section>
-                <section class="case-card"><h2>Alcance y límites</h2><p>Consumo teórico y existencias ficticias: no registra movimientos físicos, reservas, mermas ni órdenes reales.</p></section>
+                <section class="case-card"><h2>Alcance y límites</h2><p>BOM y movimientos sintéticos, sin mermas ni reservas de stock. La valorización comercial usa costos históricos separados; no se presenta el BOM como contabilidad de costos real.</p></section>
             </aside>
         </div>
         <section id="demostracion" class="demo-shell" aria-labelledby="demo-title">
             <h2 id="demo-title">Demostración funcional — entorno ficticio</h2>
-            <p class="demo-description">Empresa ficticia: Horizonte Demo S.A. · Moneda: guaraníes (PYG), sin decimales. Todos los nombres, referencias e importes son sintéticos. Las operaciones ocurren en el navegador y no acceden a infraestructura empresarial.</p>
+            <p class="demo-description">Empresa ficticia: DemoComercial S.A. · Moneda: guaraníes (PYG), sin decimales. Todos los nombres, referencias e importes son sintéticos. Las operaciones ocurren en el navegador y no acceden a infraestructura empresarial.</p>
             <noscript><p>Activá JavaScript para ejecutar esta demostración. La ficha técnica permanece disponible.</p></noscript>
             <div data-demo="LG-008"><p>Cargando demostración local…</p></div>
         </section>
@@ -49,6 +49,11 @@
         </section>
     </main>
     <footer class="case-footer"><div class="case-container">LG Smart BI · Portafolio técnico · Paraguay · <a href="../index.html#proyectos">Regresar a proyectos</a></div></footer>
-    <script src="../assets/js/demo-engine.js"></script><script src="../assets/js/demo-ui.js"></script>
+    <script src="../assets/js/demo-engine.js"></script>
+    <script src="../assets/js/demo-common.js"></script>
+    <script src="../assets/js/commercial-data.js"></script>
+    <script src="../assets/js/commercial-engine.js"></script>
+    <script src="../assets/js/operations-engine.js"></script>
+    <script src="../assets/js/operations-ui.js"></script>
 </body>
 </html>

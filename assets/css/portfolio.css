@@ -1,6 +1,23 @@
 /* Extensión no destructiva de la identidad visual LG Smart BI.
    Se carga después de styles.css para conservar la web original. */
 :root { --header-height: 60px; --portfolio-line: rgba(169,182,196,.20); }
+.demo-field { display: flex; flex-direction: column; gap: 4px; font-size: .78rem; min-width: 0; }
+.demo-field input, .demo-field select { font: inherit; min-height: 34px; color: #E4EDF7; background: #10243B; border: 1px solid #48627B; border-radius: 5px; padding: 6px 9px; max-width: 100%; }
+.demo-shell .demo-controls { align-items: end; }
+.analytics-chart { margin: 18px 0; background: #0D1B2A; border: 1px solid var(--portfolio-line); border-radius: 6px; padding: 12px; }
+.analytics-chart figcaption { font-size: .85rem; font-weight: 600; }
+.analytics-chart svg { display: block; width: 100%; max-height: 220px; }
+.analytics-chart text { fill: #B8CFE0; font: 11px Inter, sans-serif; }
+.analytics-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; margin-block: 16px; }
+.analytics-grid > *, .case-main, .case-side { min-width: 0; }
+.analytics-grid h3 { font-size: .95rem; }
+.star-schema { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; text-align: center; margin-block: 16px; }
+.star-schema > * { border: 1px solid #48627B; background: #0D1B2A; border-radius: 5px; padding: 10px; }
+.star-schema strong { grid-column: 1/-1; border-color: #39A9DB; }
+.csv-options { display: grid; gap: 7px; margin-block: 12px; }
+.demo-table .demo-number { text-align: right; font-variant-numeric: tabular-nums; }
+@media(max-width:640px) { .analytics-chart text { font-size: 22px; } }
+@media(max-width:640px) { .analytics-grid { grid-template-columns: 1fr; } .demo-field { flex: 1 1 130px; } .demo-metric strong { overflow-wrap: anywhere; } }
 body { font-size: 14.5px; line-height: 1.52; }
 .container { width: min(1240px, calc(100% - 48px)); }
 .section { padding-top: 52px; padding-bottom: 52px; }

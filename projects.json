@@ -8,7 +8,7 @@
     "status": "Demostración funcional con datos sintéticos",
     "summary": "Identifica coincidencias, diferencias y operaciones pendientes entre movimientos bancarios y registros administrativos.",
     "problem": "Las diferencias entre extractos bancarios y registros internos requieren revisiones manuales y pueden ocultar movimientos faltantes o importes incorrectos.",
-    "solution": "Motor independiente en navegador que cruza referencias e importes, detecta duplicados y clasifica excepciones usando un conjunto de operaciones completamente ficticias.",
+    "solution": "Motor JavaScript independiente con PYG enteros, tolerancias de fecha e importe, duplicados y coincidencias uno a varios únicamente cuando una combinación cumple las reglas.",
     "architecture": [
       "Movimientos ficticios",
       "Normalización",
@@ -26,7 +26,7 @@
       "Mayor trazabilidad conceptual",
       "Criterios de coincidencia auditables"
     ],
-    "limitations": "No utiliza bancos reales, credenciales, APIs ni conexiones externas. Cruce por referencia e importe, sin emparejamientos por fecha, moneda o tolerancia."
+    "limitations": "No consulta bancos ni modifica movimientos. Escenarios sintéticos y estados en memoria. Conserva la edición CSV previa; el formato sin fechas no permite verificar diferencias temporales. La demo bancaria privada anterior no estaba disponible en este checkout."
   },
   {
     "id": "LG-002",
@@ -37,7 +37,7 @@
     "status": "Demostración funcional con datos sintéticos",
     "summary": "Compara movimientos de gestión y contabilidad, identifica conciliaciones y excepciones por documento.",
     "problem": "Diferencias de imputación o documentos ausentes dificultan el cierre y la validación del Libro Mayor frente a la gestión operativa.",
-    "solution": "Cruce independiente de registros ficticios por documento e importe con separación de partidas conciliadas, faltantes y montos distintos.",
+    "solution": "Conciliación bidireccional contra la cuenta de control Clientes del Mayor, con asientos sintéticos y contrapartidas, duplicados, tolerancias, filtros y exportaciones.",
     "architecture": [
       "Gestión sintética",
       "Libro Mayor sintético",
@@ -54,7 +54,7 @@
       "Revisión bidireccional",
       "Clasificación verificable"
     ],
-    "limitations": "No realiza asientos contables ni consulta ERP. No sustituye controles contables profesionales."
+    "limitations": "No genera ni registra asientos en un ERP. El asiento balanceado de ejemplo no implica correspondencia con gestión. No sustituye controles profesionales de cierre."
   },
   {
     "id": "LG-003",
@@ -62,15 +62,15 @@
     "title": "Automatización ERP con Python y RPA",
     "category": "Automatización",
     "type": "simulation",
-    "status": "Simulación interactiva, sin conexión ERP",
-    "summary": "Ilustra el ciclo de extracción de reportes, validación de archivos y control de ejecución.",
+    "status": "Simulador determinista RPA; sin conexión ERP",
+    "summary": "Recorre una cola de tareas con etapas, errores reproducibles, reintentos configurables y bitácora exportable.",
     "problem": "La descarga repetitiva de reportes desde sistemas empresariales consume tiempo y depende de acciones manuales.",
-    "solution": "Representación paso a paso de una ejecución de RPA, con estados, eventos, validaciones y recuperación ficticia.",
+    "solution": "Máquina de estados JavaScript: inicio, obtención, validación y registro; error transitorio recuperable y error permanente con límite de intentos.",
     "architecture": [
-      "Programador",
-      "Robot conceptual",
-      "Validación",
-      "Historial"
+      "Cola sintética",
+      "Motor de estados",
+      "Validación y reintentos",
+      "Bitácora local"
     ],
     "technologies": [
       "Python (arquitectura)",
@@ -82,7 +82,7 @@
       "Visibilidad del manejo de errores",
       "Base para una implementación real"
     ],
-    "limitations": "No controla interfaces, no ejecuta Python y no se conecta a ningún ERP. Los eventos se simulan en el navegador."
+    "limitations": "No controla interfaces ni ejecuta Python. Reportes y tiempos modelados son sintéticos; no se producen exportaciones desde ERP. El CSV descargado contiene la actividad de la simulación."
   },
   {
     "id": "LG-004",
@@ -91,14 +91,14 @@
     "category": "Data Engineering",
     "type": "simulation",
     "status": "Simulación interactiva de eventos",
-    "summary": "Representa detección de modificaciones, firmas de entrada y procesamiento único por evento.",
+    "summary": "Detecta altas, modificaciones y bajas sintéticas mediante firmas, evita reprocesos y confirma salidas solo después de un éxito.",
     "problem": "El reprocesamiento innecesario y la falta de trazabilidad provocan cargas redundantes y errores operativos.",
-    "solution": "Simulación de cambios de archivos con cola, estado de procesamiento e invalidación controlada de dependencias.",
+    "solution": "Motor determinista de eventos y cola con estados obsoletos, reintentos, idempotencia y materializado en memoria.",
     "architecture": [
-      "Archivos sintéticos",
-      "Detección de eventos",
-      "Cola de cambios",
-      "Salida derivada"
+      "Eventos sintéticos",
+      "Firmas de versión",
+      "Cola incremental",
+      "Estado materializado"
     ],
     "technologies": [
       "Python (arquitectura)",
@@ -111,7 +111,7 @@
       "Distinción entre cambios y revisiones periódicas",
       "Visibilidad de dependencias"
     ],
-    "limitations": "No lee Parquet ni supervisa archivos del equipo: se generan eventos ficticios en memoria."
+    "limitations": "No observa carpetas ni lee Parquet. Firmas y metadatos se modelan en JavaScript; las bajas solo afectan el estado en memoria, sin borrar archivos reales."
   },
   {
     "id": "LG-005",
@@ -120,9 +120,9 @@
     "category": "Data Engineering",
     "type": "functional",
     "status": "Demostración funcional de transformaciones sintéticas",
-    "summary": "Ejecuta limpieza, normalización y agregación de ventas ficticias y muestra registros rechazados.",
+    "summary": "Transforma orígenes sintéticos, audita rechazos y aplica cargas incrementales reproducibles por ID y versión UTC.",
     "problem": "Fuentes heterogéneas requieren control de tipos, duplicados y validaciones antes de alimentar informes.",
-    "solution": "Motor JavaScript de ejemplo que aplica reglas ETL verificables a registros sintéticos y produce un resumen reproducible.",
+    "solution": "Motor JavaScript compartido con BI y Data Warehouse: normalización, tipos, claves dimensionales, deduplicación y upserts locales con auditoría por entrada.",
     "architecture": [
       "Fuente sintética",
       "Validación",
@@ -139,7 +139,7 @@
       "Separación de válidos y rechazados",
       "Reproducibilidad de resultados"
     ],
-    "limitations": "La demostración se ejecuta con JavaScript y no mueve datos entre bases reales."
+    "limitations": "Estado en memoria por pestaña; no hay bases, CDC ni Python conectados. Los escenarios editados se exportan, pero no reemplazan el dataset base de otras páginas. Anulados se rechazan, no eliminan hechos cargados."
   },
   {
     "id": "LG-006",
@@ -148,9 +148,9 @@
     "category": "Data Engineering",
     "type": "functional",
     "status": "Consultas analíticas funcionales con datos sintéticos",
-    "summary": "Explora dimensiones, hechos y agregaciones de ventas en un modelo dimensional de ejemplo.",
+    "summary": "Explora un esquema estrella coherente, sus claves y agregaciones; descarga CSV y SQL reproducible en PostgreSQL.",
     "problem": "Los reportes lentos y los cálculos inconsistentes aparecen cuando cada área interpreta por separado datos operativos.",
-    "solution": "Modelo dimensional de referencia para integrar ventas, costos, clientes, productos, sucursales y proveedores. La demostración se limita a agregaciones reales de ventas sintéticas en el navegador; las demás entidades pertenecen al alcance conceptual.",
+    "solution": "Hechos derivados de LG-005 y cuatro dimensiones conformadas, relaciones 1:* verificadas y agregaciones ejecutadas en JavaScript. SQL independiente validado con PostgreSQL WASM de pruebas.",
     "architecture": [
       "Fuentes operativas",
       "Staging",
@@ -168,18 +168,18 @@
       "Indicadores consistentes de ejemplo",
       "Separación entre capas"
     ],
-    "limitations": "No se conecta a PostgreSQL; los agregados se calculan sobre un pequeño dataset en memoria."
+    "limitations": "El navegador no se conecta a PostgreSQL. Se entrega un script para base local de demostración; no se validó una instalación PostgreSQL nativa ni la operación productiva."
   },
   {
     "id": "LG-007",
     "slug": "plataforma-bi",
     "title": "Plataforma integral BI y Power BI",
     "category": "Business Intelligence",
-    "type": "simulation",
-    "status": "Simulación interactiva, no es Power BI",
-    "summary": "Presenta indicadores comerciales filtrables y un esquema de arquitectura analítica integral.",
+    "type": "functional",
+    "status": "Dashboard JavaScript funcional; no es Power BI",
+    "summary": "Analiza ventas, costos, margen y ticket con cinco dimensiones filtrables y controles de integridad.",
     "problem": "La dirección necesita integrar y analizar información de múltiples sistemas con indicadores estables.",
-    "solution": "Arquitectura completa de referencia para centralizar información empresarial, automatizar cargas y publicar indicadores para diferentes áreas: SQL Server, Python ETL, PostgreSQL Data Warehouse y Power BI. La demostración es un tablero independiente en JavaScript con ventas sintéticas.",
+    "solution": "Motor analítico JavaScript sobre líneas válidas del ETL compartido; filtros combinados, gráficos SVG, detalle exportable y ejemplos de modelo estrella, DAX y Power Query.",
     "architecture": [
       "SQL Server (conceptual)",
       "Python ETL (conceptual)",
@@ -199,7 +199,7 @@
       "Narrativa de arquitectura",
       "Interacción con filtros"
     ],
-    "limitations": "No incorpora un informe Power BI real ni acceso a Power BI Service. Visualización creada solo para este portafolio."
+    "limitations": "Dashboard estático ejecutable con datos sintéticos. Sin Power BI Service ni archivo PBIX/PBIP validado. DAX y M se entregan como ejemplos pendientes de ejecución en Desktop."
   },
   {
     "id": "LG-008",
@@ -208,9 +208,9 @@
     "category": "Operaciones",
     "type": "functional",
     "status": "Calculadora funcional de consumo teórico",
-    "summary": "Calcula materiales por receta ficticia, compara con existencias de ejemplo y detecta faltantes para producción.",
+    "summary": "Explota recetas multinivel y compara consumo teórico, movimientos y stock sintéticos con validación de unidades.",
     "problem": "Producción e inventarios necesitan separar consumo esperado de movimientos físicos realmente registrados.",
-    "solution": "Calculadora BOM local que multiplica cantidades por receta y compara requerimientos con existencias sintéticas.",
+    "solution": "Motor BOM con expansión recursiva, agregación por materia prima, conversiones exactas de masa/volumen y rechazo de ciclos, componentes repetidos y producción inválida.",
     "architecture": [
       "Receta sintética",
       "Producción objetivo",
@@ -227,7 +227,7 @@
       "Separación entre teórico y físico",
       "Explicación de trazabilidad"
     ],
-    "limitations": "Consumo teórico y existencias ficticias: no registra movimientos físicos, reservas, mermas ni órdenes reales."
+    "limitations": "BOM y movimientos sintéticos, sin mermas ni reservas de stock. La valorización comercial usa costos históricos separados; no se presenta el BOM como contabilidad de costos real."
   },
   {
     "id": "LG-009",
@@ -236,9 +236,9 @@
     "category": "Finanzas",
     "type": "functional",
     "status": "Conciliación funcional de movimientos sintéticos",
-    "summary": "Cruza operaciones de venta con liquidaciones de un procesador ficticio e identifica diferencias.",
+    "summary": "Concilia ventas y liquidaciones con comisión, retención, neto y vencimientos sintéticos configurables.",
     "problem": "Las ventas con tarjetas pueden liquidarse en momentos distintos, con comisiones, diferencias o ausencias de acreditación.",
-    "solution": "Conjunto sintético de cupones y liquidaciones con validación por identificador e importe neto previsto.",
+    "solution": "Cálculos monetarios enteros con redondeo por operación, tasas en puntos básicos, fecha de corte y estados auditables por cupón.",
     "architecture": [
       "Ventas sintéticas",
       "Liquidaciones sintéticas",
@@ -255,18 +255,18 @@
       "Comprobación de comisiones",
       "Separación de eventos"
     ],
-    "limitations": "No contiene datos ni reglas propietarias de procesadoras reales. La comisión es una hipótesis didáctica, no una tarifa contractual."
+    "limitations": "Tasas y plazos didácticos, sin condiciones fiscales o contractuales reales. Usa días calendario. No accede a procesadoras, bancos o ventas reales."
   },
   {
     "id": "LG-010",
     "slug": "ia-datos",
     "title": "Inteligencia artificial aplicada a datos",
     "category": "IA y datos",
-    "type": "simulation",
-    "status": "Simulación basada en reglas, sin modelo de IA",
-    "summary": "Muestra cómo podría verse un asistente que responde preguntas sobre indicadores de una empresa ficticia.",
+    "type": "functional",
+    "status": "Consultas guiadas funcionales; sin IA ni LLM",
+    "summary": "Ejecuta consultas permitidas sobre ventas y márgenes, muestra su evidencia y explica una arquitectura futura con LLM.",
     "problem": "Los usuarios de negocio desean formular preguntas sobre datos sin escribir consultas SQL.",
-    "solution": "Interfaz de preguntas predeterminadas con respuestas calculadas por reglas. Documenta la arquitectura para una futura integración real.",
+    "solution": "Cinco reglas analíticas JavaScript con filtros y evidencia exportable sobre los mismos hechos de LG-005/006/007; sin respuestas generativas.",
     "architecture": [
       "Pregunta",
       "Control de acceso (conceptual)",
@@ -284,18 +284,18 @@
       "Exposición de controles necesarios",
       "Separación clara de simulación e IA real"
     ],
-    "limitations": "No usa modelo de lenguaje, no entiende preguntas libres y no consulta fuentes externas."
+    "limitations": "No usa IA, no interpreta preguntas libres y no consulta SQL ni servicios externos. Una implementación real con LLM requeriría identidad, herramientas de solo lectura, permisos y evaluación."
   },
   {
     "id": "LG-011",
     "slug": "monitoreo-ejecuciones",
     "title": "Monitoreo de automatizaciones",
     "category": "Automatización",
-    "type": "simulation",
-    "status": "Simulación interactiva de estados",
-    "summary": "Visualiza ejecuciones, alertas y recuperación de fallos con un historial sintético.",
+    "type": "functional",
+    "status": "Tablero funcional sobre historial sintético",
+    "summary": "Analiza ejecuciones, duraciones, fallos, reintentos y cumplimiento de SLA con filtros y exportación.",
     "problem": "Sin observabilidad es difícil distinguir una ejecución correcta de una fallida o incompleta.",
-    "solution": "Consola conceptual de incidentes que cambia estados ficticios y genera eventos reproducibles.",
+    "solution": "Agregación real de un historial determinista de 30 ejecuciones, con filtros por proceso, estado y fechas, SLA configurable y detalle de intentos.",
     "architecture": [
       "Jobs simulados",
       "Estados",
@@ -313,18 +313,18 @@
       "Explicación de alertas",
       "Modelo de seguimiento"
     ],
-    "limitations": "No supervisa tareas programadas reales ni envía notificaciones; opera únicamente en memoria."
+    "limitations": "No supervisa tareas del sistema ni envía alertas. Eventos y duraciones son sintéticos; recargar restablece el escenario."
   },
   {
     "id": "LG-012",
     "slug": "automatizacion-excel-csv",
-    "title": "Automatización de archivos Excel y CSV",
+    "title": "Procesamiento CSV para Excel y BI",
     "category": "Automatización",
     "type": "functional",
     "status": "Herramienta funcional para CSV en navegador",
-    "summary": "Convierte archivos CSV pequeños de ejemplo entre separadores y permite descargar el resultado.",
+    "summary": "Carga CSV locales, valida formato, transforma texto de forma explícita y exporta resultados preservando códigos y vacíos.",
     "problem": "La recepción de archivos con diferentes delimitadores puede dificultar cargas y conciliaciones.",
-    "solution": "Arquitectura de herramientas Python/Pandas para procesar archivos Excel y CSV, validar datos, transformar información y reducir tareas manuales. La demostración ejecutable es un conversor CSV local con selección explícita de delimitador, validación de estructura, vista previa y descarga.",
+    "solution": "Parser CSV UTF-8 con separador configurable, vista previa, validaciones, recorte opcional, deduplicación explícita y protección de fórmulas en las descargas.",
     "architecture": [
       "CSV local",
       "Lectura en navegador",
@@ -343,6 +343,6 @@
       "Archivo descargable",
       "Conversión visible"
     ],
-    "limitations": "No lee .xlsx/.xls ni ejecuta macros. La demostración trabaja solo con CSV; una integración XLSX requiere un desarrollo adicional."
+    "limitations": "Solo CSV, hasta 1 MiB y 20.000 registros. No interpreta XLS/XLSX ni macros. Las opciones de exclusión y cambio de texto son explícitas; CSV no conserva tipos de Excel."
   }
 ]

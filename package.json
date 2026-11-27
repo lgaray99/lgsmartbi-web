@@ -1,0 +1,14 @@
+{
+  "name": "lgsmartbi-portfolio",
+  "private": true,
+  "scripts": {
+    "test": "node tests/test_engine.js && node --test tests/*.test.js",
+    "test:browser": "node tests/browser-checks.js",
+    "check:links": "python tests/verificar_enlaces.py",
+    "check:privacy": "python scripts/verificar_confidencialidad.py"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.6.0",
+    "playwright": "^1.56.1"
+  }
+}

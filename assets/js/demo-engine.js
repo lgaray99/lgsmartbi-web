@@ -165,11 +165,12 @@
         }).join(delimiter)).join("\r\n") + "\r\n";
     }
     function validateCsv(rows) {
-        if (!rows.length) throw new Error("CSV vacío");
+        if (!Array.isArray(rows) || !rows.length) throw new Error("CSV vacío");
         if (rows.length > 20001) throw new Error("Máximo 20.000 registros más encabezado");
         const headers = rows[0];
+        if (!Array.isArray(headers) || !headers.length || headers.some(h => typeof h !== 'string')) throw new Error('Encabezados inválidos');
         if (headers.some(h => !h.trim()) || new Set(headers).size !== headers.length) throw new Error("Encabezados vacíos o repetidos");
-        if (rows.some(row => row.length !== headers.length)) throw new Error("Todas las filas deben tener la misma cantidad de campos");
+        if (rows.some(row => !Array.isArray(row) || row.length !== headers.length)) throw new Error("Todas las filas deben tener la misma cantidad de campos");
         return rows;
     }
     function readMovements(text) {
@@ -182,7 +183,34 @@
             return { ref: row[0].trim(), amount: Number(row[1]) };
         });
     }
-    const api = { sample, reconcile, summaries, etl, aggregateSales, recipeRequirements, cardReconciliation, parseCsv, serializeCsv, validateCsv, readMovements };
+    function transformCsv(input, options = {}) {
+        if (!Array.isArray(input) || !input.length) throw new Error('CSV vacío');
+        if (input.length > 20001) throw new Error('Máximo 20.000 registros más encabezado');
+        if (input.some(row => !Array.isArray(row) || row.some(v => typeof v !== 'string'))) throw new Error('Los campos CSV deben ser texto');
+        const trim = options.trim ?? false, removeEmpty = options.removeEmpty ?? false, dedupe = options.dedupe ?? false;
+        if ([trim,removeEmpty,dedupe].some(v => typeof v !== 'boolean')) throw new Error('Opciones CSV inválidas');
+        const headers = input[0].map(v => trim ? v.trim() : v);
+        validateCsv([headers]);
+        const column = options.column ?? -1, letterCase = options.letterCase ?? 'none';
+        if (!Number.isInteger(column) || column < -1 || column >= headers.length || !['none','upper','lower'].includes(letterCase)) throw new Error('Columna o transformación de texto inválida');
+        const rows = [headers], seen = new Set(), stats = {inputRows:input.length-1,outputRows:0,columns:headers.length,empty:0,duplicates:0,changed:0};
+        for (const original of input.slice(1)) {
+            if (removeEmpty && original.every(v => !v.trim())) { stats.empty++;continue; }
+            if (original.length !== headers.length) throw new Error('Todas las filas deben tener la misma cantidad de campos');
+            const row = original.map((value,i) => {
+                let result = trim ? value.trim() : value;
+                if (i === column && letterCase !== 'none') result = letterCase === 'upper' ? result.toLocaleUpperCase('es') : result.toLocaleLowerCase('es');
+                if (result !== value) stats.changed++;
+                return result;
+            });
+            const signature = JSON.stringify(row);
+            if (dedupe && seen.has(signature)) {stats.duplicates++;continue;}
+            seen.add(signature);rows.push(row);
+        }
+        stats.outputRows = rows.length-1;
+        validateCsv(rows);return {rows,stats};
+    }
+    const api = { sample, reconcile, summaries, etl, aggregateSales, recipeRequirements, cardReconciliation, parseCsv, serializeCsv, validateCsv, readMovements, transformCsv };
     root.LGPortfolioDemo = api;
     if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
